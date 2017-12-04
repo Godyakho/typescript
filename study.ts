@@ -57,7 +57,8 @@ function tem(tem,name,age){
 }
 tem`${Name},${getAge()}`
 
-// reat and spread
+// rest and spread
+//用于声明任意数量的方法参数
 function fna(...agrs) {
     var x =agrs.map(function (item) {
         return item+1
@@ -76,4 +77,57 @@ fnb(1,2)
 // 2
 // 3
 
+function fnc(a,b){
+    console.log(a)
+    console.log(b)
+}
 
+var args1 = [1,2,3]
+var args2 = [4]
+
+fnc(...args1)
+fnc(...args2)
+
+// generator
+// 控制函数的执行过程，手工暂停和恢复代码执行
+
+function* doing(){
+    console.log('start')
+    yield
+    console.log('end')
+}
+var fnd =doing()
+fnd.next()
+fnd.next()
+
+// 析构表达式
+function fnObj(){
+    return {
+        code:'code',
+        type:'Obj',
+        url: {
+            url1:'www.baidu.com',
+            url2:'www.chinabyte.com'
+        }
+    }
+}
+// var {code,type} = fnObj()
+var {code,type:gettype,url:{url2}} = fnObj()
+console.log(code) //code
+console.log(gettype) //Obj
+console.log(url2)  //www.chinabyte.com
+
+var arr1 = [1,2,3,4,5,6]
+var [num1,num2,,,...others] = arr1
+console.log(num1)  // 1
+console.log(num2)  // 2
+console.log(others)  //  Array(3)  4,5,6
+
+
+
+
+// 箭头表达式
+// 通过表达式将对象或数组拆解成任意
+var arrArrow = [1, 2, 3, 4]
+var fne = arrArrow.filter(num => num % 2 !== 0)
+console.log(fne)
