@@ -118,16 +118,83 @@ console.log(gettype) //Obj
 console.log(url2)  //www.chinabyte.com
 
 var arr1 = [1,2,3,4,5,6]
-var [num1,num2,,,...others] = arr1
+var [num1,num2,,...others] = arr1
 console.log(num1)  // 1
 console.log(num2)  // 2
 console.log(others)  //  Array(3)  4,5,6
 
-
-
+function doing1([num1,num2,,...others]){
+    console.log(num1)  // 1
+    console.log(num2)  // 2
+    console.log(others)  //  Array(3)  4,5,6
+}
+doing1(arr1)
 
 // 箭头表达式
 // 通过表达式将对象或数组拆解成任意
 var arrArrow = [1, 2, 3, 4]
 var fne = arrArrow.filter(num => num % 2 !== 0)
 console.log(fne)
+
+// for of 循环
+var arr = [1, 2, 3, 4]
+arr.des = 'a 4 num'
+for ( var n in arr) {
+    console.log(n)
+}
+for (var n1 in arr) {
+    console.log(arr[n1])
+}
+for (var n2 of arr.des) {
+    console.log(n2)
+}
+ 
+// class
+class person{
+    constructor(public name:string){
+        this.name = name
+        console.log('person')
+    }
+    // public name:string;
+    public sayName(){
+        console.log(this.name)
+    }
+}
+
+var person1 = new person('yanghao')
+// person1.name = 'yanghao'
+person1.sayName()
+
+//extends
+class student  extends person {
+    constructor(public name:string,public id:number){
+        // super调父类的构造函数
+        super(name)
+        this.id = id
+        console.log('student')
+    }
+
+    study(){
+        super.sayName()
+        this.studyEn()
+    }
+
+    private studyEn(){
+        console.log('Engish')
+    }
+}
+
+var stu = new student('yh',1321330063)
+console.log(stu.id)
+console.log(stu.name)
+stu.sayName()
+stu.study()
+// stu.studyEn()  private为私有 可通过study()访问
+
+//泛型
+//指定数组放某一类的元素 
+var stuArr :Array<person>
+stuArr[0] = new person('yyhh')
+stuArr[1] = new student('lyb',1321330043)
+
+
