@@ -197,4 +197,52 @@ var stuArr :Array<person>
 stuArr[0] = new person('yyhh')
 stuArr[1] = new student('lyb',1321330043)
 
+// interface
+// 接口
+
+// 用于声明一个方法的参数属性
+interface para {
+    name: string
+    age: number
+}
+
+class person2 {
+    constructor(public config:para){
+
+    }
+}
+
+var p2 = new person2({
+    name:'yh',
+    age:22
+})
+
+
+//接口声明方法，实现这个接口的类 需要调用接口的方法 
+interface ts{
+    study()
+}
+
+class junior implements ts{
+    study(){
+        console.log('typescript')
+    }
+}
+
+
+// 模块
+import {funnm, module1, module2 } from "./module";
+console.log(module1)
+console.log(funnm)
+new module2
+
+
+// annotation
+// 注解
+// 装饰器
+// 说明信息与业务逻辑无关，为指定的框架使用， 怎么处理
+
+
+// 定义类型文件
+// 在typescript中使用已有的javascript 的工具包，例如JQuery
 
